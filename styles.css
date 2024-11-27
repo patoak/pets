@@ -1,0 +1,256 @@
+/* Reset and Global Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Header Styling */
+.main-header {
+  text-align: center;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #ff6b6b, #ffd700);
+  color: #fff;
+}
+
+.main-header h1 {
+  margin: 0;
+  font-size: 3rem;
+}
+
+.top-text {
+  display: block;
+  color: #fff;
+}
+
+.bottom-text {
+  display: block;
+  color: #333;
+  margin-top: 10px;
+}
+
+/* Reasons Section */
+.reasons-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns per row */
+  gap: 20px;
+  padding: 40px 20px;
+}
+
+.reason {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  text-align: center;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.reason img {
+  width: 80px;
+  margin-bottom: 15px;
+}
+
+.reason h3 {
+  font-size: 1.5rem;
+  margin: 15px 0;
+}
+
+.reason p {
+  font-size: 1rem;
+  color: #666;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .reasons-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns per row on medium screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .reasons-container {
+    grid-template-columns: 1fr; /* 1 column per row on small screens */
+  }
+}
+
+/* Accordion Section */
+.accordion {
+  margin: 40px 20px;
+}
+
+.accordion-item {
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.accordion-button {
+  width: 100%;
+  padding: 15px;
+  font-size: 1.8rem;
+  text-align: left;
+  background-color: #f9f9f9;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.3s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.accordion-button:hover {
+  background-color: #e0e0e0;
+}
+
+.accordion-content {
+  padding: 15px;
+  display: none;
+  background-color: #fff;
+  border-top: 1px solid #ddd;
+}
+
+/* Accordion Icon */
+.accordion-button::after {
+  content: '+'; 
+  font-size: 1.2rem;
+  transition: transform 0.3s;
+}
+
+.accordion-item.active .accordion-button::after {
+  content: '-';
+  transform: rotate(180deg);
+}
+
+/* Bullet points with star icons in accordion answers */
+.accordion-content ul {
+  list-style-type: none; /* Remove default bullets */
+  padding-left: 0;
+}
+
+.accordion-content li {
+  position: relative;
+  padding-left: 25px; /* Space for the star bullet */
+  font-size: 1.5rem;
+  color: #666;
+}
+
+.accordion-content li::before {
+  content: '\2605'; /* Unicode for a filled black star */
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%); /* Center the star vertically */
+  font-size: 1.2rem;
+  color: black;
+  display: none;
+  transition: display 0.3s ease-in-out;
+  
+}
+
+.accordion-item.active .accordion-content {display: block;}
+/* Puzzle-specific styles */
+
+/* Container for the game */
+.game-container {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin: 0 auto;
+  height: 80vh;
+  align-items: center;
+  gap: 5px; /* Reduced gap */
+  margin-top: -10%;
+  margin-bottom: -10%;
+}
+
+
+/* Left and Right Columns (only puzzle parts should be in columns) */
+.left-column, .right-column {
+  display: grid;
+  grid-template-columns: repeat(5, 100px); /* Adjust based on the number of pieces per row */
+  grid-template-rows: repeat(3, 100px); /* Adjust based on the number of pieces per column */
+  gap: 10px;
+  align-items: center;
+}
+
+.piece, .slot {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: bold;
+  border-radius: 8px;
+}
+
+.piece {
+  background-color: #FF5733;
+  cursor: pointer;
+  user-select: none; /* Prevents text selection when dragging */
+}
+
+.slot {
+  background-color: #000000;
+}
+
+.slot:hover {
+  background-color: #e0e0e0;
+}
+
+/* Game Controls */
+#start-game {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #ff6b6b;
+  color: white;
+  font-size: 1.5rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#start-game:hover {
+  background-color: #ff4444;
+}
+
+#timer {
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 20px;
+}
+
+#game-status{
+  font-size: 2.2rem;
+  text-align: center;
+  margin-top: 20px;
+}
+
+#leaderboard {
+  width: 100%;
+  margin: 20px auto;
+  border-collapse: collapse;
+}
+
+#leaderboard th, #leaderboard td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+#leaderboard th {
+  background-color: #f4f4f4;
+}
+
+
